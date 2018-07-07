@@ -1,0 +1,11 @@
+D:\code\DotNettyTest\DotNettyTest\bin\Debug\netcoreapp2.1\DotNettyTest.deps.json
+D:\code\DotNettyTest\DotNettyTest\bin\Debug\netcoreapp2.1\DotNettyTest.runtimeconfig.json
+D:\code\DotNettyTest\DotNettyTest\bin\Debug\netcoreapp2.1\DotNettyTest.runtimeconfig.dev.json
+D:\code\DotNettyTest\DotNettyTest\bin\Debug\netcoreapp2.1\DotNettyTest.dll
+D:\code\DotNettyTest\DotNettyTest\obj\Debug\netcoreapp2.1\DotNettyTest.csprojAssemblyReference.cache
+D:\code\DotNettyTest\DotNettyTest\obj\Debug\netcoreapp2.1\DotNettyTest.csproj.CoreCompileInputs.cache
+D:\code\DotNettyTest\DotNettyTest\obj\Debug\netcoreapp2.1\DotNettyTest.AssemblyInfoInputs.cache
+D:\code\DotNettyTest\DotNettyTest\obj\Debug\netcoreapp2.1\DotNettyTest.AssemblyInfo.cs
+D:\code\DotNettyTest\DotNettyTest\bin\Debug\netcoreapp2.1\DotNettyTest.pdb
+D:\code\DotNettyTest\DotNettyTest\obj\Debug\netcoreapp2.1\DotNettyTest.dll
+D:\code\DotNettyTest\DotNettyTest\obj\Debug\netcoreapp2.1\DotNettyTest.pdb
