@@ -1,0 +1,2 @@
+install manual
+yum install man-pages libstdc++-docs
