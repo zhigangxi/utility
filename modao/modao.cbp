@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="modao" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\modao" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\modao" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="bangpai.cpp" />
+		<Unit filename="bangpai.h" />
+		<Unit filename="call_script.cpp" />
+		<Unit filename="call_script.h" />
+		<Unit filename="database.cpp" />
+		<Unit filename="database.h" />
+		<Unit filename="despatch_command.cpp" />
+		<Unit filename="despatch_command.h" />
+		<Unit filename="fight.cpp" />
+		<Unit filename="fight.h" />
+		<Unit filename="hash_table.h" />
+		<Unit filename="huo_dong.cpp" />
+		<Unit filename="huo_dong.h" />
+		<Unit filename="ini_file.cpp" />
+		<Unit filename="ini_file.h" />
+		<Unit filename="item.cpp" />
+		<Unit filename="item.h" />
+		<Unit filename="log.cpp" />
+		<Unit filename="log.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
+		<Unit filename="monster.cpp" />
+		<Unit filename="monster.h" />
+		<Unit filename="net_msg.cpp" />
+		<Unit filename="net_msg.h" />
+		<Unit filename="npc_manager.cpp" />
+		<Unit filename="npc_manager.h" />
+		<Unit filename="online_user.cpp" />
+		<Unit filename="online_user.h" />
+		<Unit filename="pack_deal.cpp" />
+		<Unit filename="pack_deal.h" />
+		<Unit filename="pack_list.cpp" />
+		<Unit filename="pack_list.h" />
+		<Unit filename="protocol.h" />
+		<Unit filename="scene_manager.cpp" />
+		<Unit filename="scene_manager.h" />
+		<Unit filename="script_call.cpp" />
+		<Unit filename="script_call.h" />
+		<Unit filename="script_fight.h" />
+		<Unit filename="script_item.h" />
+		<Unit filename="script_monster.h" />
+		<Unit filename="script_scene.h" />
+		<Unit filename="script_user.h" />
+		<Unit filename="self_typedef.h" />
+		<Unit filename="singleton.h" />
+		<Unit filename="skill.cpp" />
+		<Unit filename="skill.h" />
+		<Unit filename="socket_server.cpp" />
+		<Unit filename="socket_server.h" />
+		<Unit filename="swig_wrap.cpp" />
+		<Unit filename="swigluarun.h" />
+		<Unit filename="user.cpp" />
+		<Unit filename="user.h" />
+		<Unit filename="utility.cpp" />
+		<Unit filename="utility.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

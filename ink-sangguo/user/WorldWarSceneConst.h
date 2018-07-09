@@ -1,0 +1,26 @@
+#pragma once
+
+enum WorldWarSceneBuildingType
+{
+	BUILDING_NONE,
+	BUILDING_BASE,
+	BUILDING_STRONGHOLD,
+	BUILDING_BARN,
+	BUILDING_BARRACK,
+	BUILDING_TOWER,
+	BUILDING_SPAWN_POINT,
+	BUILDING_CATAPULT
+};
+
+enum WorldWarSceneForceType
+{
+	FORCE_NONE,
+	FORCE_1,
+	FORCE_2
+};
+
+enum WorldWarSceneForceState
+{
+	STATE_MOVE,
+	STATE_DEFENCE
+};

@@ -1,0 +1,5 @@
+src_path=./
+src_file=.cpp
+obj_flag=-g -Wall 
+link_opt=-L/usr/local/pgsql/lib/ -lpq
+target=test
