@@ -7,7 +7,7 @@ DecodeEncode::DecodeEncode()
 {
 	for (int i = 0; i < _keyLen; i++)
 	{
-		_key[i] = i * i + (i << 8);
+		_key[i] = i * i + (i+1) << 3;
 	}
 }
 
@@ -73,10 +73,27 @@ bool DecodeEncode::ToStr(const char *ibuf, int len, std::string &str)
 	return true;
 }
 
+void GetKey(char *key)
+{
+	std::string tmp = key;
+	for (int i = 0; i < tmp.length(); i++)
+	{
+		char c = i;
+		for (int j = 0; j < tmp.length(); j++)
+		{
+			c += tmp.at(j);
+			c ^= tmp.at(j);
+		}
+		key[i] = c;
+	}
+}
+
 bool DecodeEncode::Init(char *key)
 {
 	int pos = 0;
 	int len = strlen(key);
+	GetKey(key);
+
 	for (int i = 0; i < _keyLen; i++)
 	{
 		_key[i] ^= key[pos];
