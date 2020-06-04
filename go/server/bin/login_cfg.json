@@ -1,0 +1,5 @@
+{
+    "database":"root:123456@/login?charset=utf8mb4",
+    "server_ip":":6000",
+    "rpc_ip":"127.0.0.1:6001"
+}

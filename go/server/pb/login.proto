@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package loginpb;
+
+option go_package = ".;loginpb";
+
+enum ErrorCode
+{
+    NoError = 0;
+    LoginError = 1;//用户名密码出错
+    UserNameExisted = 2;//用户名已存在
+}
+
+message PbType
+{
+    enum TypeEnum
+    {
+        NotUse = 0;
+        LoginReq = 1;
+        LoginAck = 2;
+        RegisterReq = 3;
+        RegisterAck = 4;
+        ServerListReq = 5;
+        ServerListAck = 6;
+    }
+}
+
+message LoginReq
+{
+    string name = 1;
+    string password = 2;
+}
+
+message LoginAck
+{
+    int64 accountID = 1;
+    string session = 2;
+    ErrorCode err = 3;
+}
+
+message RegisterReq
+{
+    string name = 1;
+    string password = 2;
+}
+
+message RegisterAck
+{
+    ErrorCode err = 1;
+}
+
+message ServerInfo
+{
+    string name = 1;
+    string ip = 2;//"ip:port"
+}
+
+message ServerListAck
+{
+    repeated ServerInfo infos = 1;
+}

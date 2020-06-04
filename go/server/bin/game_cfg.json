@@ -1,0 +1,9 @@
+{
+    "database":"root:123456@/game?charset=utf8mb4",
+    "bind_ip":":7001",
+    "client_use_ip":"127.0.0.1:7001",
+    "server_name":"Hello World",
+    "login_rpc":"127.0.0.1:6001",
+    "order_id":1,
+    "config_path":"server"
+}

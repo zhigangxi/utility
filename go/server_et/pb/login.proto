@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package loginpb;
+
+option go_package = ".;loginpb";
+
+
+
+enum LoginErrorCode
+{
+    NoError = 0;
+    LoginError = 1;//用户名密码出错
+    UserNameExisted = 2;//用户名已存在
+}
+
+
+message LoginReq 	//IRequest
+{
+	int32 RpcId = 90;
+    string name = 1;
+    string password = 2;
+}
+
+message LoginAck		//IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+    int64 accountID = 1;
+    string session = 2;
+    LoginErrorCode err = 3;
+}
+
+message RegisterReq		//IRequest
+{
+	int32 RpcId = 90;
+    string name = 1;
+    string password = 2;
+	string code = 3;
+}
+
+message RegisterAck		//IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+    LoginErrorCode err = 1;
+	int64 UserId = 2;//玩家唯一ID
+}
+
+
+message ServerListReq		//IRequest
+{
+	int32 RpcId = 90;
+}
+
+message ServerListAck	//IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+    repeated ServerInfo infos = 1;
+}
+
+
+message LoginPbType
+{
+    enum TypeEnum
+    {
+        NotUse = 0;
+        LoginReq = 20001;
+        LoginAck = 20002;
+        RegisterReq = 20003;
+        RegisterAck = 20004;
+        ServerListReq = 20005;
+        ServerListAck = 20006;
+    }
+}
+
+message ServerInfo
+{
+	int32 RpcId = 90;
+    string name = 1;
+    string ip = 2;//"ip:port"
+}

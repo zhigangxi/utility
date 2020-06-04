@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+package gamedata;
+
+option go_package = ".;gamedata";
+

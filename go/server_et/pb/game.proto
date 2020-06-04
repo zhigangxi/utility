@@ -1,0 +1,189 @@
+syntax = "proto3";
+
+package gamepb;
+
+option go_package = ".;gamepb";
+
+enum GameErrorCode
+{
+    NoError = 0;
+    GameSessionError = 1;
+    NotCreateUser = 2;//未创建用户
+    NickAlreadyExist = 3;//用户名已存在
+    NickIsTooShort = 4;//用户名太短
+    NickIsTooLong = 5;//用户名太长 昵称长度3-12个字符
+    UserIsCreated = 6;//已经创建用户
+}
+
+message EnterGameReq	//IRequest
+{
+	int32 RpcId = 90;
+    int64 userID = 1;
+    string session = 2;
+}
+
+message EnterGameAck	//IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+    GameErrorCode err = 1;
+    UserInfo info = 2;
+}
+
+message CreateUserReq	//IRequest
+{
+	int32 RpcId = 90;
+    string nick = 1;
+	int32 gender = 2;//1=男，2=女
+}
+
+message CreateUserAck	//IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+    GameErrorCode err = 1;
+    UserInfo info = 2;
+}
+
+message PackageReq	//IRequest
+{
+	int32 RpcId = 90;
+}
+
+message PackageAck	//IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+    repeated PackageInfo infos = 1;    
+}
+
+message EquipmentReq		//IRequest
+{
+	int32 RpcId = 90;
+}
+
+message EquipmentAck	//IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+    repeated EquipmentInfo equips = 1;
+}
+
+message AdminCmdReq		//IRequest
+{
+    //AddPackage itemId num     --add package
+    string cmd = 1;
+    //zero is to me,other is to other user
+    int64 userID = 2;
+	int32 RpcId = 90;
+}
+
+message AdminCmdAck		//IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+    bool success = 1;
+    string errStr = 2;
+}
+
+message PlayerMove
+{
+    int32 x = 1;
+    int32 y = 2;
+    float speed = 3;
+}
+
+message OtherPlayerMove
+{
+    int64 userID = 1;
+    int32 x = 2;
+    int32 y = 3;
+    float speed = 4;
+    int64 timestamp = 5;
+}
+
+message JumpScene
+{
+    int32 toSceneID = 1;
+    int32 x = 2;
+    int32 y = 3;
+}
+
+message EnterScene
+{
+    int32 sceneID = 1;
+    int32 x = 2;
+    int32 y = 3;
+}
+
+message PlayerExitScene
+{
+    int64 userID = 1;
+}
+
+message PlayerEnterScene
+{
+    int64 userID = 1;
+    int32 sceneID = 2;
+    int32 x = 3;
+    int32 y = 4;
+    int64 timestamp = 5;
+}
+
+message GamePbType
+{
+    enum TypeEnum
+    {
+        NotUse = 0;//don't modify this
+        EnterGameReq = 30001;
+        EnterGameAck = 30002;
+        CreateUserReq = 30003;
+        CreateUserAck = 30004;
+        PackageReq = 30005;
+        PackageAck = 30006;
+        EquipmentReq = 30007;
+        EquipmentAck = 30008;
+        AdminCmdReq = 30009;
+        AdminCmdAck = 30010;
+        PlayerMove = 30011;
+        OtherPlayerMove = 30012;
+        EnterScene = 30013;
+        PlayerEnterScene = 30014;
+        PlayerExitScene = 30015;
+    }
+}
+
+
+message EquipmentInfo
+{
+	int32 RpcId = 90;
+    int64 id = 1;
+    int32 classID = 2;
+    uint32 pos = 3;
+}
+
+message PackageInfo
+{
+	int32 RpcId = 90;
+    int64 id = 1;
+    int32 classID = 2;
+    uint32 pos = 3;
+    int32 num = 4;
+}
+
+message UserInfo
+{
+	int32 RpcId = 90;
+    string nick = 1;
+    int32 exp = 2;
+    int32 level = 3;
+    int64 score = 4;//游戏币
+    int32 gold = 5;//充值币
+    int32 gender = 6;
+    int32 sceneID = 7;//玩家所在场景id
+}

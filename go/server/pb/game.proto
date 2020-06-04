@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+package gamepb;
+
+option go_package = ".;gamepb";
+
+enum ErrorCode
+{
+    NoError = 0;
+    GameSessionError = 1;
+    NotCreateUser = 2;//未创建用户
+    NickAlreadyExist = 3;//用户名已存在
+    NickIsTooShort = 4;//用户名太短
+    NickIsTooLong = 5;//用户名太长 昵称长度3-12个字符
+    UserIsCreated = 6;//已经创建用户
+}
+
+message PbType
+{
+    enum TypeEnum
+    {
+        NotUse = 0;//don't modify this
+        EnterGameReq = 1;
+        EnterGameAck = 2;
+        CreateUserReq = 3;
+        CreateUserAck = 4;
+        PackageReq = 5;
+        PackageAck = 6;
+        EquipmentReq = 7;
+        EquipmentAck = 9;
+
+        AdminCmdReq = 10;
+        AdminCmdAck = 11;
+    }
+}
+
+message EnterGameReq
+{
+    int64 userID = 1;
+    string session = 2;
+}
+
+message UserInfo
+{
+    string nick = 1;
+    int32 exp = 2;
+    int32 level = 3;
+    int64 score = 4;//游戏币
+    int32 gold = 5;//充值币
+}
+
+message EnterGameAck
+{
+    ErrorCode error = 1;
+    UserInfo info = 2;
+}
+
+message CreateUserReq
+{
+    string nick = 1;
+}
+
+message CreateUserAck
+{
+    ErrorCode error = 1;
+    UserInfo info = 2;
+}
+
+message PackageInfo
+{
+    int64 id = 1;
+    int32 classID = 2;
+    uint32 pos = 3;
+    int32 num = 4;
+}
+
+message PackageAck
+{
+    repeated PackageInfo infos = 1;    
+}
+
+message EquipmentInfo
+{
+    int64 id = 1;
+    int32 classID = 2;
+    uint32 pos = 3;
+}
+
+message EquipmentAck
+{
+    repeated EquipmentInfo equips = 1;
+}
+
+message AdminCmdReq
+{
+    //AddPackage itemId num     --add package
+    string cmd = 1;
+    //zero is to me,other is to other user
+    int64 userID = 2;
+}
+
+message AdminCmdAck
+{
+    bool success = 1;
+    string errStr = 2;
+}

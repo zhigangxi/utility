@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package rpcpb;
+
+option go_package = ".;rpcpb";
+
+message PbType
+{
+    enum TypeEnum
+    {
+        RpcTimer = 0;//don't modify this
+        GetLoginSessArg = 1;
+        GetLoginSessReply = 2;
+        GameServerInfo = 3;
+    }
+}
+
+message GetLoginSessArg
+{
+    int64 userId = 1;
+}
+
+message GetLoginSessReply
+{
+    int64 userId = 1;
+    string session = 2;
+}
+
+message GameServerInfo
+{
+    string serverIp = 1;
+    string serverName = 2;
+    int32 orderId = 3;
+    int32 userNum = 4;
+}
